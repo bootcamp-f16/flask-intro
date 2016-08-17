@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+  <form action="" method="post" name="times">
+    <div class="input text">
+        Min: {{ form.x }}
+    </div>
+    <div class="input text">
+        Max: {{ form.y }}
+    </div>
+    <input type='submit' value='Submit'>
+      
+    </input>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {% for i in range(min,max+1): %}
+          <th>
+            {{i}}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in range(min,max+1) %}
+        <tr>
+          <th>
+            {{x}}
+          </th>
+          {% for y in range(min,max+1) %}
+            <td>
+              {{x * y}}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
